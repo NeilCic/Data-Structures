@@ -139,7 +139,7 @@ int SlistForEach(slist_node_t *head, act_func_t act, void *param)
 	return (temp? 0 : 1);
 }
 
-static const slist_node_t *LevelLength(const slist_node_t *node1, const slist_node_t *node2,
+static const slist_node_t *LevelLength(const slist_node_t *node1, 
 												size_t count1, size_t count2)
 {
 	while (count1 - count2)
@@ -161,11 +161,11 @@ const slist_node_t *SlistFindIntersection(const slist_node_t *head1,
 
 	if (count1 > count2)
 	{
-		head1 = LevelLength(head1, head2, count1, count2);
+		head1 = LevelLength(head1,count1, count2);
 	}
 	else
 	{
-		head2 = LevelLength(head2, head1, count2, count1);
+		head2 = LevelLength(head2, count2, count1);
 	}
 
 	if (head1 == head2)
